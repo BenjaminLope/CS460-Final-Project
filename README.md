@@ -35,8 +35,8 @@
 
 | Source Node Type | Why it is a source |
 |---|---|
-| _node type_ | _one-line reason_ |
-| _node type_ | _one-line reason_ |
+| _Entrance_ | _We need the distance from the entrance to every relic chamber since its the starting point for the torchbearer_ |
+| _Relic Chamber_ | _one-line reason_ |
 
 ### Part 2b: Distance Storage
 
@@ -44,20 +44,20 @@
 
 | Property | Your answer |
 |---|---|
-| Data structure name | |
-| What the keys represent | |
-| What the values represent | |
-| Lookup time complexity | |
-| Why O(1) lookup is possible | |
+| Data structure name | Dictionary |
+| What the keys represent | Source and destination nodes |
+| What the values represent | Distance from source to destination |
+| Lookup time complexity | O(1) |
+| Why O(1) lookup is possible | Hashing allows direct look up time in memory |
 
 ### Part 2c: Precomputation Complexity
 
 > State the total complexity and show the arithmetic. Two to three lines max.
 
-- **Number of Dijkstra runs:** _your answer_
-- **Cost per run:** _your answer_
-- **Total complexity:** _your answer_
-- **Justification (one line):** _your answer_
+- **Number of Dijkstra runs:** k + 1, since we search from k relic chambers, as well as starting entrance
+- **Cost per run:** O((V + E)log V), where V is number of vertices and E is number of edges
+- **Total complexity:** O((k + 1)((V + E)log V)) -> O(k(V + E)log V)
+- **Justification (one line):** We run Dijkstra from the start and every relic chamber, and each run takes O((V + E)log V)
 
 ---
 
