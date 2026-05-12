@@ -34,7 +34,10 @@ def explain_problem():
 
     TODO
     """
-    return "TODO"
+    return "A single shortest path run from S does not always guarantee visiting every relic chamber. As a result we need the shortest path from every chamber\n
+After all inter-location costs are known the decision that remains is the order of visiting chambers.\n
+Different routes and orders cost different fuel amounts, so to find the most optimal route we must check over all the orders\n
+"
 
 
 # =============================================================================
@@ -56,7 +59,8 @@ def select_sources(spawn, relics, exit_node):
 
     TODO
     """
-    pass
+    #Makes a set to remove duplicates, then unpack the relics.
+    return list({spawn, exit_node, *relics})
 
 
 def run_dijkstra(graph, source):
@@ -75,7 +79,31 @@ def run_dijkstra(graph, source):
 
     TODO
     """
-    pass
+    #initialize all nodes at the start to infinity distance
+    dist = {node: float('inf') for node in graph}
+    dist[source] = 0
+
+    #initialize the priority queue
+    pq = []
+    heapq.heappush(0, source)
+
+    #loop till empty
+    while pq:
+        currDistance, currNode = heapq.heappop(pq)
+
+        #check for visited outdated entries
+        if currDistance > dist[currNode]:
+            continue
+        
+        for v, cost in graph[currNode]:
+            newDistance = currDistance + edge
+
+            if newDistance < dist[neighbor]:
+                dist[neighbor] = newDistance
+                heapq.heappush(pq, (newDistance, neighbor))
+                
+
+    return dist
 
 
 def precompute_distances(graph, spawn, relics, exit_node):
@@ -94,8 +122,18 @@ def precompute_distances(graph, spawn, relics, exit_node):
         for every source u your design requires.
 
     TODO
+    k + 1, O((V + E)log V), O(k(V + E)log V)
     """
-    pass
+
+    sourceSet = {spawn, exit_node, *relics)
+
+    #I'll go with your naming, for consistancy (even though I prefer camelcase lowkey)
+    dist_table = {}
+
+    from source in sourceSet:
+        dist_table[source] = run_dijkstra(graph, source)
+
+    return dist_table
 
 
 # =============================================================================

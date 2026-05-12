@@ -10,7 +10,7 @@
 
 ---
 
-## Entry 1 – [5/12/2025]: Initial Plan
+## Entry 1 – [5/12/2026]: Initial Plan
 
 > Required. Write this before writing any code. Describe your plan: what you will
 > implement first, what parts you expect to be difficult, and how you plan to test.
@@ -21,7 +21,15 @@ Finally, I plan on testing via some classic print statement testing, as well as 
 
 ---
 
-## Entry 2 – [Date]: [Short description]
+## Entry 2 – [5/13/2026]: [Starting work]
+
+Began to work on the final, starting and finishing part 2 of the README.
+Realized I misinput year on Entry 1, and I have been neglecting the torchbearer.py so I went into that as well to keep on track.
+Finished up working on the torchbearer and readme up to part 2. No formal testing yet, but figured ill go as far as i can before I really go into debug and testing mode.
+
+---
+
+## Entry 3 – [Date]: [Short description]
 
 > Required. At least one entry must describe a bug, wrong assumption, or design change
 > you encountered. Describe what went wrong and how you resolved it.
@@ -30,13 +38,13 @@ _Your entry here._
 
 ---
 
-## Entry 3 – [Date]: [Short description]
+## Entry 4 – [Date]: [Short description]
 
 _Your entry here._
 
 ---
 
-## Entry 4 – [Date]: Post-Implementation Reflection
+## Entry 5 – [Date]: Post-Implementation Reflection
 
 > Required. Written after your implementation is complete. Describe what you would
 > change or improve given more time.
