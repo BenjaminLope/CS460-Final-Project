@@ -1,7 +1,7 @@
 # Development Log – The Torchbearer
 
-**Student Name:** ___________________________
-**Student ID:** ___________________________
+**Student Name:** Benjamin Lopez
+**Student ID:** 825274015
 
 > Instructions: Write at least four dated entries. Required entry types are marked below.
 > Two to five sentences per entry is sufficient. Write entries as you go, not all in one
@@ -10,12 +10,14 @@
 
 ---
 
-## Entry 1 – [Date]: Initial Plan
+## Entry 1 – [5/12/2025]: Initial Plan
 
 > Required. Write this before writing any code. Describe your plan: what you will
 > implement first, what parts you expect to be difficult, and how you plan to test.
 
-_Your entry here._
+I plan to probabily implement the code sequentially as the orders are labeled in the instructions.
+I forsee the invariant check and optimal route to be some tricky parts of the coding, given their more in depth approaches
+Finally, I plan on testing via some classic print statement testing, as well as using the debugger when presented with more stubborn bugs for specific value checking
 
 ---
 

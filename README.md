@@ -1,7 +1,7 @@
 # The Torchbearer
 
-**Student Name:** ___________________________
-**Student ID:** ___________________________
+**Student Name:** Benjamin Lopez
+**Student ID:** 825274015
 **Course:** CS 460 – Algorithms | Spring 2026
 
 > This README is your project documentation. Write it the way a developer would document
@@ -17,13 +17,13 @@
 > per question. Each bullet should be 1-2 sentences max.
 
 - **Why a single shortest-path run from S is not enough:**
-  _Your answer here._
+  A single shortest path run from S does not always guarantee visiting every relic chamber. As a result we need the shortest path from every chamber.
 
 - **What decision remains after all inter-location costs are known:**
-  _Your answer here._
+  After all inter-location costs are known the decision that remains is the order of visiting chambers.
 
 - **Why this requires a search over orders (one sentence):**
-  _Your answer here._
+  Different routes and orders cost different fuel amounts, so to find the most optimal route we must check over all the orders
 
 ---
 
