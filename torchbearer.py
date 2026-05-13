@@ -34,10 +34,10 @@ def explain_problem():
 
     TODO
     """
-    return "A single shortest path run from S does not always guarantee visiting every relic chamber. As a result we need the shortest path from every chamber\n
-After all inter-location costs are known the decision that remains is the order of visiting chambers.\n
-Different routes and orders cost different fuel amounts, so to find the most optimal route we must check over all the orders\n
-"
+    return """A single shortest path run from S does not always guarantee visiting every relic chamber. As a result we need the shortest path from every chamber
+After all inter-location costs are known the decision that remains is the order of visiting chambers.
+Different routes and orders cost different fuel amounts, so to find the most optimal route we must check over all the orders
+"""
 
 
 # =============================================================================
@@ -151,14 +151,14 @@ def dijkstra_invariant_check():
     TODO
     """
     
-    return "For nodes in S in the invariant, It means that we know the true set in stone shortest distance to the node\n" + 
-"For nodes not in s, It means that we know a short path to the node, but not if its the true shortest yet as it only goes through finalized nodes so far.\n" +
+    return """For nodes in S in the invariant, It means that we know the true set in stone shortest distance to the node"
+"For nodes not in s, It means that we know a short path to the node, but not if its the true shortest yet as it only goes through finalized nodes so far."
 
-"Before the first iteration the start is initalized to 0 and every other node to infinity, with an empty S.The invariant holds, as the shortest true path to yourself is 0, and every other node is unknown so it remains infinity\n" +
-"Since the edge weights are nonnegative you can only ever add more, and the minimum node will ensure alwasy the minimum most cost/path is added. That means it is the shortest possible path, so its correct fo finalize.\n" +
-"The algorithm guaranteess all reachable nodes will be in the finalized set S. Thus it guarentees that the true shortest path to each node has been caluclated.\n" +
+"Before the first iteration the start is initalized to 0 and every other node to infinity, with an empty S.The invariant holds, as the shortest true path to yourself is 0, and every other node is unknown so it remains infinity"
+"Since the edge weights are nonnegative you can only ever add more, and the minimum node will ensure alwasy the minimum most cost/path is added. That means it is the shortest possible path, so its correct fo finalize."
+"The algorithm guaranteess all reachable nodes will be in the finalized set S. Thus it guarentees that the true shortest path to each node has been caluclated." +
 
-"Without a correct distance, the torchbearer cannot find the exit, or would make a choice that wastes fuel and could lead to a suboptimal route.\n"
+"Without a correct distance, the torchbearer cannot find the exit, or would make a choice that wastes fuel and could lead to a suboptimal route."""
 
 
 # =============================================================================
@@ -175,7 +175,22 @@ def explain_search():
 
     TODO
     """
-    return "TODO"
+    return """Greedy will always choose the next cheapest cost relic chamber, which could potentially block a global optimal route
+For the counterexample, we will use the following dungeon mapping:
+| From \ To | B   | C   | D   | T   |
+|-----------|-----|-----|-----|-----|
+| S         | 1   | 2   | 2   | --  |
+| B         | --  | 100 | 100 | 1   |
+| C         | 1   | --  | 100 | 1   |
+| D         | 1   | 1   | --  | 100 |
+
+Greedy would choose the cheapest route available at each point, leading to a selection of S->B->D->C->T and a total cost of 103
+Optimal would choose the optimal route, leading to a selection of S->D->C->B->T, and a cost of 5
+Greedys choice of local optimum locks it out from the global optimal choice, and in this case makes it total cost significantly higher than the optimal path
+
+Since the final answer depends on the global best path between all relics, the algorithm must explore every order of relic chamber visits to find the most opitimal path
+
+"""
 
 
 # =============================================================================

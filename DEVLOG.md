@@ -29,10 +29,21 @@ Finished up working on the torchbearer and readme up to part 2. No formal testin
 
 ---
 
-## Entry 3 – [5/13/2026]: [Finish part 3]
+## Entry 3 – [5/13/2026]: [Finish Part 3]
 
 Finished working on all subsections of part 3 in README.
 Additionally implemented the answers into the invariant check method in the torchbearer.py file.
+
+---
+
+
+## Entry #4 – [5/13/2026]: [Finsih Part 4]
+
+Finished working on all subsection of part 4 in README.
+Implemented answers into relevant method in torchbearer.py
+Also revisted the string return for methods, as formatting my mult-line answers was getting annoying.
+Found out that python allows triple parenthesis for string returns, so I elected to use those moving forward.
+Also fixed a missing answer way back in part 2a that I somehow just missed entering.
 
 ---
 

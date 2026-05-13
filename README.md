@@ -36,7 +36,7 @@
 | Source Node Type | Why it is a source |
 |---|---|
 | _Entrance_ | _We need the distance from the entrance to every relic chamber since its the starting point for the torchbearer_ |
-| _Relic Chamber_ | _one-line reason_ |
+| _Relic Chamber_ | _We need the distance from every relic chamber to every other and to the exit_ |
 
 ### Part 2b: Distance Storage
 
@@ -108,17 +108,23 @@
 > State the failure mode. Then give a concrete counter-example using specific node names
 > or costs (you may use the illustration example from the spec). Three to five bullets.
 
-- **The failure mode:** _Your answer here._
-- **Counter-example setup:** _Your answer here._
-- **What greedy picks:** _Your answer here._
-- **What optimal picks:** _Your answer here._
-- **Why greedy loses:** _Your answer here._
+- **The failure mode:** Greedy will always choose the next cheapest cost relic chamber, which could potentially block a global optimal route
+- **Counter-example setup:** For the counterexample, we will use the following dungeon mapping:
+| From \ To | B   | C   | D   | T   |
+|-----------|-----|-----|-----|-----|
+| S         | 1   | 2   | 2   | --  |
+| B         | --  | 100 | 100 | 1   |
+| C         | 1   | --  | 100 | 1   |
+| D         | 1   | 1   | --  | 100 |
+- **What greedy picks:** Greedy would choose the cheapest route available at each point, leading to a selection of S->B->D->C->T and a total cost of 103
+- **What optimal picks:** Optimal would choose the optimal route, leading to a selection of S->D->C->B->T, and a cost of 5
+- **Why greedy loses:** Greedys choice of local optimum locks it out from the global optimal choice, and in this case makes it total cost significantly higher than the optimal path
 
 ### What the Algorithm Must Explore
 
 > One bullet. Must use the word "order."
 
-- _Your answer here._
+- Since the final answer depends on the global best path between all relics, the algorithm must explore every order of relic chamber visits to find the most opitimal path
 
 ---
 
