@@ -177,7 +177,7 @@ def explain_search():
     """
     return """Greedy will always choose the next cheapest cost relic chamber, which could potentially block a global optimal route
 For the counterexample, we will use the following dungeon mapping:
-| From \ To | B   | C   | D   | T   |
+| From \\ To | B   | C   | D   | T   |
 |-----------|-----|-----|-----|-----|
 | S         | 1   | 2   | 2   | --  |
 | B         | --  | 100 | 100 | 1   |
@@ -217,22 +217,27 @@ def find_optimal_route(dist_table, spawn, relics, exit_node):
 
     TODO
     """
+
+    currNode = node
+    collectedRelics = {}
+    fuelCost = 0
+    
     pass
 
 
-def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
-             cost_so_far, exit_node, best):
+def _explore(dist_table, currNode, remainingRelics, relics_visited_order,
+             fuelCost, exit_node, best):
     """
     Recursive helper for find_optimal_route.
 
     Parameters
     ----------
     dist_table : dict[node, dict[node, float]]
-    current_loc : node
-    relics_remaining : collection
+    currNode : node
+    remainingRelics : collection set
         Your chosen data structure from README Part 5b.
     relics_visited_order : list[node]
-    cost_so_far : float
+    fuelCost : float
     exit_node : node
     best : list
         Mutable container for the best solution found so far.
@@ -249,6 +254,24 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
     explaining why it is safe (cannot skip the optimal solution).
     This comment is graded.
     """
+
+    """
+    #Pruning case
+    if current fuelCost is greater than best cost:
+        prune the branch
+
+    #Base case
+    if no relics remain:
+        try going from currentNode to exitNode
+        update best if total cost is better
+
+    #recursive case
+    for each relic still remaining:
+        try going to that relic next
+
+    #
+    """
+    
     pass
 
 

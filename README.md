@@ -138,8 +138,8 @@
 | Component | Variable name in code | Data type | Description |
 |---|---|---|---|
 | Current location | currNode | node | Curent node in algorithm step |
-| Relics already collected | collectedRelics | set | Set of all the relics collected so far |
-| Fuel cost so far | fuelCost | int | Int for total amount of fuel expended so far |
+| Relics already collected | remainingRelics | set | Set of all the relics collected so far |
+| Fuel cost so far | fuelCost | float | float for total amount of fuel expended so far |
 
 ### Part 5b: Data Structure for Visited Relics
 

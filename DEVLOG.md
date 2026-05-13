@@ -54,12 +54,14 @@ Did a trial "run" of my python code and got errors right off the bat, so quite  
 
 ---
 
-## Entry #x – [Date]: [Short description]
+## Entry #6 – [5/14/2026]: [Route finding implementation]
 
-> Required. At least one entry must describe a bug, wrong assumption, or design change
-> you encountered. Describe what went wrong and how you resolved it.
-
-_Your entry here._
+During work on coding for my main exploring algorithm ran into an incorrect assumption I made earlier.
+I had made my relics already collected as "collectedRelics", whereas in the code it is preset of "relics_remaining".
+I realized that it wasn't asking for a set of the relics collected but rather to track the relics collected, which in another way is just removing relics you've already collected from the list.
+I realized this as it makes much more sense code wise to track the list of relics remaining to collect, as you can then just use the empty list as a base case.
+Moving forward I will completely change my answer for part 5 with variable names that better match what the code wants.
+Also changed fuelCost to a float
 
 ---
 
