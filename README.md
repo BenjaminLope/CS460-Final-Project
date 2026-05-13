@@ -55,9 +55,9 @@
 > State the total complexity and show the arithmetic. Two to three lines max.
 
 - **Number of Dijkstra runs:** k + 1, since we search from k relic chambers, as well as starting entrance
-- **Cost per run:** O((V + E)log n), where V is number of vertices and E is number of edges
-- **Total complexity:** O((k + 1)((V + E)log V)) -> O(k(V + E)log V)
-- **Justification (one line):** We run Dijkstra from the start and every relic chamber, and each run takes O((V + E)log V)
+- **Cost per run:** O((n + m)log n), where V is number of vertices and E is number of edges
+- **Total complexity:** O((k + 1)((n + m)log n)) -> O(k(n + m)log n)
+- **Justification (one line):** We run Dijkstra from the start and every relic chamber, and each run takes O((n + m)log n)
 
 ---
 
@@ -137,9 +137,9 @@
 
 | Component | Variable name in code | Data type | Description |
 |---|---|---|---|
-| Current location | | | |
-| Relics already collected | | | |
-| Fuel cost so far | | | |
+| Current location | currNode | node | Curent node in algorithm step |
+| Relics already collected | collectedRelics | set | Set of all the relics collected so far |
+| Fuel cost so far | fuelCost | int | Int for total amount of fuel expended so far |
 
 ### Part 5b: Data Structure for Visited Relics
 
@@ -147,18 +147,18 @@
 
 | Property | Your answer |
 |---|---|
-| Data structure chosen | |
-| Operation: check if relic already collected | Time complexity: |
-| Operation: mark a relic as collected | Time complexity: |
-| Operation: unmark a relic (backtrack) | Time complexity: |
-| Why this structure fits | |
+| Data structure chosen | set |
+| Operation: check if relic already collected | Time complexity: O(1) |
+| Operation: mark a relic as collected | Time complexity: O(1) |
+| Operation: unmark a relic (backtrack) | Time complexity: O(1) |
+| Why this structure fits | A set provides fast updates and searches |
 
 ### Part 5c: Worst-Case Search Space
 
 > Two bullets.
 
-- **Worst-case number of orders considered:** _Your answer (in terms of k)._
-- **Why:** _One-line justification._
+- **Worst-case number of orders considered:** V * 2^k
+- **Why:** For every current node location V we consider the 2^k subsets of relics collected at said location
 
 ---
 
@@ -168,23 +168,24 @@
 
 > Three bullets.
 
-- **What is tracked:** _Your answer here._
-- **When it is used:** _Your answer here._
-- **What it allows the algorithm to skip:** _Your answer here._
+- **What is tracked:** The minimum most cost route found so far
+- **When it is used:** When reaching a new potential path, its used to compare route costs
+- **What it allows the algorithm to skip:** It allows the torchfinder to skip suboptimal routes that are higher cost than the current best
 
 ### Part 6b: Lower Bound Estimation
 
 > Three bullets.
 
-- **What information is available at the current state:** _Your answer here._
-- **What the lower bound accounts for:** _Your answer here._
-- **Why it never overestimates:** _Your answer here._
+- **What information is available at the current state:** Relics collected, the current location, and current cost
+- **What the lower bound accounts for:** The current incurred cost plus the possible minimum cost to reach the other relics and the exit
+- **Why it never overestimates:** Since it always uses the shortest path between nodes its always an optimistic estimate of the cost remaining, so it can never overestimate
 
 ### Part 6c: Pruning Correctness
 
 > One to two bullets. Explain why pruning is safe.
 
-- _Your answer here._
+- If lower bound is greater than or equal to the current best route, any other route cannot be any better
+- Therfore, we can safely prune paths as they will never be the optimal solution, as its true cost is at least as large as the lower bound estimate
 
 ---
 
@@ -192,4 +193,4 @@
 
 > Bullet list. If none beyond lecture notes, write that.
 
-- _Your references here._
+- https://www.geeksforgeeks.org/dsa/traveling-salesman-problem-using-branch-and-bound-2/

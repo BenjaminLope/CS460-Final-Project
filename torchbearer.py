@@ -125,12 +125,12 @@ def precompute_distances(graph, spawn, relics, exit_node):
     k + 1, O((V + E)log V), O(k(V + E)log V)
     """
 
-    sourceSet = {spawn, exit_node, *relics)
+    sourceSet = {spawn, exit_node, *relics}
 
     #I'll go with your naming, for consistancy (even though I prefer camelcase lowkey)
     dist_table = {}
 
-    from source in sourceSet:
+    for  source in sourceSet:
         dist_table[source] = run_dijkstra(graph, source)
 
     return dist_table

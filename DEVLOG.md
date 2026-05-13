@@ -36,14 +36,21 @@ Additionally implemented the answers into the invariant check method in the torc
 
 ---
 
-
-## Entry #4 – [5/13/2026]: [Finsih Part 4]
+## Entry #4 – [5/13/2026]: [Finish Part 4]
 
 Finished working on all subsection of part 4 in README.
 Implemented answers into relevant method in torchbearer.py
 Also revisted the string return for methods, as formatting my mult-line answers was getting annoying.
 Found out that python allows triple parenthesis for string returns, so I elected to use those moving forward.
 Also fixed a missing answer way back in part 2a that I somehow just missed entering.
+
+---
+
+## Entry #5 – [5/13/2026]: [Finish Part 5 & 6 README]
+
+Finished working on part 5 & 6 in the README.
+Now utilizing my current README answers to start working and implementing the algorithm in python.
+Did a trial "run" of my python code and got errors right off the bat, so quite  alot of debugging in my future.
 
 ---
 
