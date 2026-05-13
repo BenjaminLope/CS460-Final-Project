@@ -29,7 +29,14 @@ Finished up working on the torchbearer and readme up to part 2. No formal testin
 
 ---
 
-## Entry 3 – [Date]: [Short description]
+## Entry 3 – [5/13/2026]: [Finish part 3]
+
+Finished working on all subsections of part 3 in README.
+Additionally implemented the answers into the invariant check method in the torchbearer.py file.
+
+---
+
+## Entry #x – [Date]: [Short description]
 
 > Required. At least one entry must describe a bug, wrong assumption, or design change
 > you encountered. Describe what went wrong and how you resolved it.
@@ -38,13 +45,13 @@ _Your entry here._
 
 ---
 
-## Entry 4 – [Date]: [Short description]
+## Entry #x – [Date]: [Short description]
 
 _Your entry here._
 
 ---
 
-## Entry 5 – [Date]: Post-Implementation Reflection
+## Entry #x – [Date]: Post-Implementation Reflection
 
 > Required. Written after your implementation is complete. Describe what you would
 > change or improve given more time.

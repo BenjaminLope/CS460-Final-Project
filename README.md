@@ -55,7 +55,7 @@
 > State the total complexity and show the arithmetic. Two to three lines max.
 
 - **Number of Dijkstra runs:** k + 1, since we search from k relic chambers, as well as starting entrance
-- **Cost per run:** O((V + E)log V), where V is number of vertices and E is number of edges
+- **Cost per run:** O((V + E)log n), where V is number of vertices and E is number of edges
 - **Total complexity:** O((k + 1)((V + E)log V)) -> O(k(V + E)log V)
 - **Justification (one line):** We run Dijkstra from the start and every relic chamber, and each run takes O((V + E)log V)
 
@@ -72,29 +72,32 @@
 > Do not copy the invariant text from the spec.
 
 - **For nodes already finalized (in S):**
-  _Your answer here._
+  It means that we know the true set in stone shortest distance to the node
 
 - **For nodes not yet finalized (not in S):**
-  _Your answer here._
+  It means that we know a short path to the node, but not if its the true shortest yet as it only goes through finalized nodes so far.
 
 ### Part 3b: Why Each Phase Holds
 
 > One to two bullets per phase. Maintenance must mention nonnegative edge weights.
 
 - **Initialization : why the invariant holds before iteration 1:**
-  _Your answer here._
+   Before the first iteration the start is initalized to 0 and every other node to infinity, with an empty S.
+   The invariant holds, as the shortest true path to yourself is 0, and every other node is unknown so it remains infinity
 
 - **Maintenance : why finalizing the min-dist node is always correct:**
-  _Your answer here._
+   Since the edge weights are nonnegative you can only ever add more, and the minimum node will ensure alwasy the minimum most cost/path is added.
+   That means it is the shortest possible path, so its correct fo finalize.
 
 - **Termination : what the invariant guarantees when the algorithm ends:**
-  _Your answer here._
+   The algorithm guaranteess all reachable nodes will be in the finalized set S. 
+   Thus it guarentees that the true shortest path to each node has been caluclated.
 
 ### Part 3c: Why This Matters for the Route Planner
 
 > One sentence connecting correct distances to correct routing decisions.
 
-_Your answer here._
+ Without a correct distance, the torchbearer cannot find the exit, or would make a choice that wastes fuel and could lead to a suboptimal route.
 
 ---
 
