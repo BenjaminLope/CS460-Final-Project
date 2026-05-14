@@ -110,6 +110,7 @@
 
 - **The failure mode:** Greedy will always choose the next cheapest cost relic chamber, which could potentially block a global optimal route
 - **Counter-example setup:** For the counterexample, we will use the following dungeon mapping:
+
 | From \ To | B   | C   | D   | T   |
 |-----------|-----|-----|-----|-----|
 | S         | 1   | 2   | 2   | --  |
