@@ -85,7 +85,7 @@ def run_dijkstra(graph, source):
 
     #initialize the priority queue
     pq = []
-    heapq.heappush(0, source)
+    heapq.heappush(pq,(0, source))
 
     #loop till empty
     while pq:
@@ -95,8 +95,8 @@ def run_dijkstra(graph, source):
         if currDistance > dist[currNode]:
             continue
         
-        for v, cost in graph[currNode]:
-            newDistance = currDistance + edge
+        for neighbor, cost in graph[currNode]:
+            newDistance = currDistance + cost
 
             if newDistance < dist[neighbor]:
                 dist[neighbor] = newDistance
@@ -130,7 +130,7 @@ def precompute_distances(graph, spawn, relics, exit_node):
     #I'll go with your naming, for consistancy (even though I prefer camelcase lowkey)
     dist_table = {}
 
-    for  source in sourceSet:
+    for source in sourceSet:
         dist_table[source] = run_dijkstra(graph, source)
 
     return dist_table
@@ -217,15 +217,17 @@ def find_optimal_route(dist_table, spawn, relics, exit_node):
 
     TODO
     """
-
-    currNode = node
-    collectedRelics = {}
+    best = [float('inf'), []]
+    remainingRelics = relics
+    visitedRelicsOrder = []
     fuelCost = 0
+
+    _explore(dist_table, spawn, remainingRelics, visitedRelicsOrder, fuelCost, exit_node, best)
     
-    pass
+    return best[0], best[1]
 
 
-def _explore(dist_table, currNode, remainingRelics, relics_visited_order,
+def _explore(dist_table, currNode, remainingRelics, visitedRelicsOrder,
              fuelCost, exit_node, best):
     """
     Recursive helper for find_optimal_route.
@@ -236,7 +238,7 @@ def _explore(dist_table, currNode, remainingRelics, relics_visited_order,
     currNode : node
     remainingRelics : collection set
         Your chosen data structure from README Part 5b.
-    relics_visited_order : list[node]
+    visitedRelicsOrder : list[node]
     fuelCost : float
     exit_node : node
     best : list
@@ -260,20 +262,46 @@ def _explore(dist_table, currNode, remainingRelics, relics_visited_order,
     if current fuelCost is greater than best cost:
         prune the branch
 
-    #Base case
-    if no relics remain:
-        try going from currentNode to exitNode
-        update best if total cost is better
+    #Base case, out of relics so time to leave
+    if not remainingRelics:
+        #get the distance to the exit
+        exitFuelCost = dist_table[currNode][exit_node]
+        
+        if exitFuelCost == float('inf'):
+            return
 
-    #recursive case
-    for each relic still remaining:
-        try going to that relic next
+        #check if the total cost is better than the best cost, update if so
+        totalCost = fuelCost + exitFuelCost
 
-    #
-    """
-    
-    pass
+        if totalCost < best[0]:
+            best[0] = totalCost
+            best[1] = visitedRelicsOrder.copy()
+        return
 
+    #recursive case, we check each relic remaining to see where to go
+    for relic in list(remainingRelics):
+        #get the cost to the relic
+        delvingCost = dist_table[currNode][relic]
+        if delvingCost == float('inf'):
+            continue
+
+        #get the updated cost
+        updatedCost = fuelCost + delvingCost
+
+        #count the relic
+        remainingRelics.remove(relic)
+        visitedRelicsOrder.append(relic)
+
+        #recursively call
+        _explore(dist_table, relic, remainingRelics, visitedRelicsOrder, updatedCost, exit_node, best)
+
+        #backtracking for other relic orders
+        visitedRelicsOrder.pop()
+        remainingRelics.add(relic)
+
+    #Pruning case
+    if fuelCost >= best[0]:
+        return
 
 # =============================================================================
 # PIPELINE
@@ -296,7 +324,10 @@ def solve(graph, spawn, relics, exit_node):
 
     TODO
     """
-    pass
+
+    dist_table = precompute_distances(graph, spawn, relics, exit_node)
+
+    return find_optimal_route(dist_table, spawn, relics, exit_node)
 
 
 # =============================================================================
