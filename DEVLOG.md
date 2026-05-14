@@ -54,7 +54,7 @@ Did a trial "run" of my python code and got errors right off the bat, so quite  
 
 ---
 
-## Entry #6 – [5/14/2026]: [Route finding implementation]
+## Entry #6 – [5/13/2026]: [Route finding implementation]
 
 During work on coding for my main exploring algorithm ran into an incorrect assumption I made earlier.
 I had made my relics already collected as "collectedRelics", whereas in the code it is preset of "relics_remaining".
@@ -65,9 +65,12 @@ Also changed fuelCost to a float
 
 ---
 
-## Entry #x – [Date]: [Short description]
+## Entry #7 – [5/14/2026]: [Small Crash and method implementation]
 
-_Your entry here._
+Implemented the main exploring and path finding functions. Ran into small crashing bug, which sounds easy enough to fix.
+I decided instead to sleep and tackle this issue in the morning, as I spent the bulk of the day working on another final project.
+I also fixed Entry #6 date, as I beieve it was set to the wrong day. Reason being a funny but simple one: My laptop Im using is still set to Japan timezone.
+It broke when I studied abroad, and I only recently fixed it this semester and just haven't been bothered to fix the clock. Apologies for that.
 
 ---
 
