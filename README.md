@@ -86,12 +86,12 @@
    The invariant holds, as the shortest true path to yourself is 0, and every other node is unknown so it remains infinity
 
 - **Maintenance : why finalizing the min-dist node is always correct:**
-   Since the edge weights are nonnegative you can only ever add more, and the minimum node will ensure alwasy the minimum most cost/path is added.
-   That means it is the shortest possible path, so its correct fo finalize.
+   Since the edge weights are nonnegative you can only ever add more, and the minimum node will ensure always the minimum most cost/path is added.
+   That means it is the shortest possible path, so its correct to finalize.
 
 - **Termination : what the invariant guarantees when the algorithm ends:**
-   The algorithm guaranteess all reachable nodes will be in the finalized set S. 
-   Thus it guarentees that the true shortest path to each node has been caluclated.
+   The algorithm guarantees all reachable nodes will be in the finalized set S. 
+   Thus it guarantees that the true shortest path to each node has been calculated.
 
 ### Part 3c: Why This Matters for the Route Planner
 
@@ -124,7 +124,7 @@
 
 > One bullet. Must use the word "order."
 
-- Since the final answer depends on the global best path between all relics, the algorithm must explore every order of relic chamber visits to find the most opitimal path
+- Since the final answer depends on the global best path between all relics, the algorithm must explore every order of relic chamber visits to find the most optimal path
 
 ---
 
@@ -137,7 +137,7 @@
 
 | Component | Variable name in code | Data type | Description |
 |---|---|---|---|
-| Current location | currNode | node | Curent node in algorithm step |
+| Current location | currNode | node | Current node in algorithm step |
 | Relics already collected | remainingRelics | set | Set of all the relics collected so far |
 | Fuel cost so far | fuelCost | float | float for total amount of fuel expended so far |
 
@@ -170,7 +170,7 @@
 
 - **What is tracked:** The minimum most cost route found so far
 - **When it is used:** When reaching a new potential path, its used to compare route costs
-- **What it allows the algorithm to skip:** It allows the torchfinder to skip suboptimal routes that are higher cost than the current best
+- **What it allows the algorithm to skip:** It allows the torchbearer to skip suboptimal routes that are higher cost than the current best
 
 ### Part 6b: Lower Bound Estimation
 
@@ -185,7 +185,7 @@
 > One to two bullets. Explain why pruning is safe.
 
 - If lower bound is greater than or equal to the current best route, any other route cannot be any better
-- Therfore, we can safely prune paths as they will never be the optimal solution, as its true cost is at least as large as the lower bound estimate
+- Therefore, we can safely prune paths as they will never be the optimal solution, as its true cost is at least as large as the lower bound estimate
 
 ---
 

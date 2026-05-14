@@ -15,7 +15,7 @@
 > Required. Write this before writing any code. Describe your plan: what you will
 > implement first, what parts you expect to be difficult, and how you plan to test.
 
-I plan to probabily implement the code sequentially as the orders are labeled in the instructions.
+I plan to probably implement the code sequentially as the orders are labeled in the instructions.
 I forsee the invariant check and optimal route to be some tricky parts of the coding, given their more in depth approaches
 Finally, I plan on testing via some classic print statement testing, as well as using the debugger when presented with more stubborn bugs for specific value checking
 
@@ -40,7 +40,7 @@ Additionally implemented the answers into the invariant check method in the torc
 
 Finished working on all subsection of part 4 in README.
 Implemented answers into relevant method in torchbearer.py
-Also revisted the string return for methods, as formatting my mult-line answers was getting annoying.
+Also revisted the string return for methods, as formatting my multi-line answers was getting annoying.
 Found out that python allows triple parenthesis for string returns, so I elected to use those moving forward.
 Also fixed a missing answer way back in part 2a that I somehow just missed entering.
 
@@ -67,6 +67,9 @@ Also changed fuelCost to a float
 
 ## Entry #7 – [5/14/2026]: [Small Crash and method implementation]
 
+> Required. At least one entry must describe a bug, wrong assumption, or design change
+> you encountered. Describe what went wrong and how you resolved it.
+
 Implemented the main exploring and path finding functions. Ran into small crashing bug, which sounds easy enough to fix.
 I decided instead to sleep and tackle this issue in the morning, as I spent the bulk of the day working on another final project.
 I also fixed Entry #6 date, as I beieve it was set to the wrong day. Reason being a funny but simple one: My laptop Im using is still set to Japan timezone.
@@ -74,27 +77,39 @@ It broke when I studied abroad, and I only recently fixed it this semester and j
 
 ---
 
-## Entry #x – [Date]: Post-Implementation Reflection
+## Entry #8 – [5/14/2026]: [Completed Implementation and final fix]
+
+
+Finalized the code entry, completed all test cases and extra test case for pruning.
+At first ran into an issue just because I miscounted the relics, then trying to fix that I realized my pruning condition was in the wrong place.
+So my original build was very poorly performing as it was never pruning any branches. After moving the pruning condition I found performance to improve in speed.
+Everything seemed in order so I saved and set out code for submission.
+
+
+---
+
+## Entry #9 – [5/14/2026]: Post-Implementation Reflection
 
 > Required. Written after your implementation is complete. Describe what you would
 > change or improve given more time.
 
-_Your entry here._
+After implementation I would probably fix performance moreso. It already moves very fast, but when it comes to larger relic dungeons the speed decreases noticeably.
+Maybe also allowing more like larger and twisted dungeons? Although the code should already account for this. Otherwise mainly just further tune my exploring and route finding for better performance.
 
 ---
 
-## Final Entry – [Date]: Time Estimate
+## Final Entry – [5/14/2026]: Time Estimate
 
 > Required. Estimate minutes spent per part. Honesty is expected; accuracy is not graded.
 
 | Part | Estimated Hours |
 |---|---|
-| Part 1: Problem Analysis | |
-| Part 2: Precomputation Design | |
-| Part 3: Algorithm Correctness | |
-| Part 4: Search Design | |
-| Part 5: State and Search Space | |
-| Part 6: Pruning | |
-| Part 7: Implementation | |
-| README and DEVLOG writing | |
-| **Total** | |
+| Part 1: Problem Analysis | 0.5 |
+| Part 2: Precomputation Design | 1|
+| Part 3: Algorithm Correctness | 1 |
+| Part 4: Search Design | 1 |
+| Part 5: State and Search Space | 1 |
+| Part 6: Pruning | 1.5 |
+| Part 7: Implementation | 2 |
+| README and DEVLOG writing | 1 |
+| **Total** | 9 |
